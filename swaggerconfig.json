@@ -6,9 +6,9 @@
     "supportsES6": true,
     "ensureUniqueParams": true,
     "npmName": "@ravimosharksas/apis-contract-libs-angular",
-    "npmVersion": "2.0.0",
+    "npmVersion": "1.0.0",
     "npmRepository": "https://www.npmjs.com/package/@ravimosharksas/apis-contract-libs-angular",
     "providedInRoot": true,
     "allowUnicodeIdentifiers":true,
-    "ngVersion": "7.0.0"
+    "ngVersion": "7.2.15"
 }
