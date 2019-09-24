@@ -34,8 +34,9 @@ fi
 
 SWAGGER_NAME=swagger-codegen-cli.jar
 SWAGGER_JAR=${FOLDER}/${SWAGGER_NAME}
-SWAGGER_VERSION=2.4.8 # 2.3.1 or 2.4.0
+SWAGGER_VERSION=3.0.11 # 2.3.1 or 2.4.0
+SWAGGER_URL="https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/${SWAGGER_VERSION}/swagger-codegen-cli-${SWAGGER_VERSION}.jar"
 if [ ! -f ${SWAGGER_JAR} ]; then
-    curl -L http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/${SWAGGER_VERSION}/swagger-codegen-cli-${SWAGGER_VERSION}.jar \
+    curl -L ${SWAGGER_URL} \
     -o ${SWAGGER_JAR}
 fi
