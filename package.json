@@ -29,6 +29,7 @@
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "postinstall": "npm-install-peers",
     "build-ngc": "ngc -h",
     "build": "ng-packagr -p ng-package.json",
     "check": "npm-check",
@@ -62,6 +63,8 @@
     "@angular/platform-browser": "7.2.15",
     "ng-packagr": "5.5.0",
     "npm-check": "5.9.0",
+    "npm-install-peers": "^1.2.1",
+    "npm-snapshot": "^1.0.3",
     "reflect-metadata": "^0.1.3",
     "rxjs": "6.5.2",
     "typescript": "3.2.4",
