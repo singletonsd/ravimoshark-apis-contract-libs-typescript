@@ -1,6 +1,6 @@
 {
   "name": "@ravimosharksas/apis-contract-libs-angular",
-  "version": "1.0.0",
+  "version": "1.0.0-SNAPSHOT.190924134440",
   "description": "Swagger client for @ravimosharksas/apis-contract-libs-angular",
   "keywords": [
     "swagger-client",
@@ -69,8 +69,5 @@
     "rxjs": "6.5.2",
     "typescript": "3.2.4",
     "zone.js": "0.10.2"
-  },
-  "publishConfig": {
-    "registry": "https://www.npmjs.com/package/@ravimosharksas/apis-contract-libs-angular"
   }
 }
