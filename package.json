@@ -29,7 +29,7 @@
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build2": "ngc -h",
+    "build-ngc": "ngc -h",
     "build": "ng-packagr -p ng-package.json",
     "check": "npm-check",
     "generate": "./scripts/generate.sh",
