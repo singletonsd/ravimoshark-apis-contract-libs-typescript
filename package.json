@@ -69,5 +69,8 @@
     "rxjs": "6.5.2",
     "typescript": "3.2.4",
     "zone.js": "0.10.2"
+  },
+  "config": {
+    "unsafe-perm": true
   }
 }
