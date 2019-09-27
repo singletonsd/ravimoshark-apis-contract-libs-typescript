@@ -1,3 +1,4 @@
+export * from './clients';
 export * from './contracts';
 export * from './customError';
 export * from './deleted';
@@ -6,6 +7,8 @@ export * from './importedMachines';
 export * from './inlineResponse200';
 export * from './inlineResponse2001';
 export * from './inlineResponse2002';
+export * from './locations';
 export * from './machines';
 export * from './metadata';
+export * from './pieces';
 export * from './refContract';

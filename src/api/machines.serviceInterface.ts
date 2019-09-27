@@ -61,13 +61,13 @@ export interface MachinesServiceInterface {
     /**
     * Get all machines.
     * Get all machines.
-    * @param SkipParam number of item to skip
+    * @param skip number of item to skip
     * @param limit max records to return
     * @param orderBy order by property.
     * @param filterBy filter data.
     * @param deleted Get all, deleted, not deleted data. Default not deleted.
     * @param metadata If metadata is needed (for pagination controls)
     */
-    getMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, extraHttpRequestParams?: any): Observable<InlineResponse2002>;
+    getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, extraHttpRequestParams?: any): Observable<InlineResponse2002>;
 
 }

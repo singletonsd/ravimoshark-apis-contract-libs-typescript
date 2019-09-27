@@ -32,7 +32,7 @@ import { ImportedMachinesServiceInterface }                            from './i
 @Injectable()
 export class ImportedMachinesService implements ImportedMachinesServiceInterface {
 
-    protected basePath = 'http://localhost:8000/api/v1';
+    protected basePath = 'http://localhost:8000';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -242,7 +242,7 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
     /**
      * Get all imported Machines.
      * Get all imported Machines.
-     * @param SkipParam number of item to skip
+     * @param skip number of item to skip
      * @param limit max records to return
      * @param orderBy order by property.
      * @param filterBy filter data.
@@ -251,13 +251,13 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getImportedMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
-    public getImportedMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
-    public getImportedMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
-    public getImportedMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
+    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
+    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
+    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
-        if (SkipParam === null || SkipParam === undefined) {
-            throw new Error('Required parameter SkipParam was null or undefined when calling getImportedMachines.');
+        if (skip === null || skip === undefined) {
+            throw new Error('Required parameter skip was null or undefined when calling getImportedMachines.');
         }
 
         if (limit === null || limit === undefined) {
@@ -269,8 +269,8 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
 
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (SkipParam !== undefined && SkipParam !== null) {
-            queryParameters = queryParameters.set('SkipParam', <any>SkipParam);
+        if (skip !== undefined && skip !== null) {
+            queryParameters = queryParameters.set('skip', <any>skip);
         }
         if (limit !== undefined && limit !== null) {
             queryParameters = queryParameters.set('limit', <any>limit);

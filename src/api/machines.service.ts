@@ -31,7 +31,7 @@ import { MachinesServiceInterface }                            from './machines.
 @Injectable()
 export class MachinesService implements MachinesServiceInterface {
 
-    protected basePath = 'http://localhost:8000/api/v1';
+    protected basePath = 'http://localhost:8000';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -241,7 +241,7 @@ export class MachinesService implements MachinesServiceInterface {
     /**
      * Get all machines.
      * Get all machines.
-     * @param SkipParam number of item to skip
+     * @param skip number of item to skip
      * @param limit max records to return
      * @param orderBy order by property.
      * @param filterBy filter data.
@@ -250,13 +250,13 @@ export class MachinesService implements MachinesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
-    public getMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
-    public getMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
-    public getMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
+    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
+    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
+    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
-        if (SkipParam === null || SkipParam === undefined) {
-            throw new Error('Required parameter SkipParam was null or undefined when calling getMachines.');
+        if (skip === null || skip === undefined) {
+            throw new Error('Required parameter skip was null or undefined when calling getMachines.');
         }
 
         if (limit === null || limit === undefined) {
@@ -268,8 +268,8 @@ export class MachinesService implements MachinesServiceInterface {
 
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (SkipParam !== undefined && SkipParam !== null) {
-            queryParameters = queryParameters.set('SkipParam', <any>SkipParam);
+        if (skip !== undefined && skip !== null) {
+            queryParameters = queryParameters.set('skip', <any>skip);
         }
         if (limit !== undefined && limit !== null) {
             queryParameters = queryParameters.set('limit', <any>limit);

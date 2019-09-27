@@ -62,13 +62,13 @@ export interface ImportedMachinesServiceInterface {
     /**
     * Get all imported Machines.
     * Get all imported Machines.
-    * @param SkipParam number of item to skip
+    * @param skip number of item to skip
     * @param limit max records to return
     * @param orderBy order by property.
     * @param filterBy filter data.
     * @param deleted Get all, deleted, not deleted data. Default not deleted.
     * @param metadata If metadata is needed (for pagination controls)
     */
-    getImportedMachines(SkipParam: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, extraHttpRequestParams?: any): Observable<InlineResponse2001>;
+    getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, extraHttpRequestParams?: any): Observable<InlineResponse2001>;
 
 }
