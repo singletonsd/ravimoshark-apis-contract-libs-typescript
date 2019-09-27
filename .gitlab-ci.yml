@@ -39,13 +39,13 @@ build:
       fi
     - npm run build
   artifacts:
-    name: "$CI_PROJECT_NAME-${CI_COMMIT_REF_NAME}"
-    paths:
-      - dist/
-    expire_in: 20 yrs
-    name: dependencies
-    paths:
-      - node_modules/
+    - name: "$CI_PROJECT_NAME-${CI_COMMIT_REF_NAME}"
+      paths:
+        - dist/
+      expire_in: 20 yrs
+    - name: dependencies
+      paths:
+        - node_modules/
   only:
     changes:
       - ./*.json
