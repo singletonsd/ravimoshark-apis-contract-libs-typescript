@@ -5,6 +5,7 @@ variables:
 
 stages:
   - generate
+  - install
   - build
   - test_static
   - deploy
@@ -24,11 +25,23 @@ generate:
   only:
     - triggers
 
-build:
-  stage: build
-  before_script:
+install:
+  stage: install
+  script:
     - npm install
     - npm run install-peers
+  artifacts:
+    name: dependencies
+    paths:
+      - node_modules/
+  only:
+    changes:
+      - ./*.json
+      - src/**/*
+      - .gitlab-ci.yml
+
+build:
+  stage: build
   script:
     # Set version to next one if it was trigger by documentation.
     - if [ "${CI_PIPELINE_TRIGGERED}" == "true" ]; then
@@ -39,13 +52,10 @@ build:
       fi
     - npm run build
   artifacts:
-    - name: "$CI_PROJECT_NAME-${CI_COMMIT_REF_NAME}"
-      paths:
-        - dist/
-      expire_in: 20 yrs
-    - name: dependencies
-      paths:
-        - node_modules/
+    name: "$CI_PROJECT_NAME-${CI_COMMIT_REF_NAME}"
+    paths:
+      - dist/
+    expire_in: 20 yrs
   only:
     changes:
       - ./*.json
