@@ -1,5 +1,5 @@
 {
-  "name": "@ravimosharksas/apis-contract-libs-angular",
+  "name": "@ravimosharksas/apis-contract-libs-typescript",
   "version": "1.0.0-SNAPSHOT.190924134440",
   "description": "Swagger client for @ravimosharksas/apis-contract-libs-angular",
   "keywords": [
@@ -11,9 +11,9 @@
     "ravimoshark"
   ],
   "license": "SEE LICENSE IN LICENSE file",
-  "homepage": "https://gitlab.com/ravimosharksas/apis/contract/libs/angular",
+  "homepage": "https://gitlab.com/ravimosharksas/apis/contract/libs/typescript",
   "bugs": {
-    "url": "https://gitlab.com/ravimosharksas/apis/contract/libs/angular",
+    "url": "https://gitlab.com/ravimosharksas/apis/contract/libs/typescript",
     "email": "patricio.perpetua.arg@gmail.com"
   },
   "author": {
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/ravimosharksas/apis/contract/libs/angular.git"
+    "url": "https://gitlab.com/ravimosharksas/apis/contract/libs/typescript.git"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
