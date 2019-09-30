@@ -18,8 +18,9 @@ import { CustomError } from '../model/customError';
 import { Deleted } from '../model/deleted';
 import { IdInteger } from '../model/idInteger';
 import { ImportedMachines } from '../model/importedMachines';
-import { InlineResponse2001 } from '../model/inlineResponse2001';
+import { InlineResponse2002 } from '../model/inlineResponse2002';
 import { Machines } from '../model/machines';
+import { Reviewed } from '../model/reviewed';
 
 
 import { Configuration }                                     from '../configuration';
@@ -68,7 +69,8 @@ export interface ImportedMachinesServiceInterface {
     * @param filterBy filter data.
     * @param deleted Get all, deleted, not deleted data. Default not deleted.
     * @param metadata If metadata is needed (for pagination controls)
+    * @param reviewed only reviewed data.
     */
-    getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, extraHttpRequestParams?: any): Observable<InlineResponse2001>;
+    getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, extraHttpRequestParams?: any): Observable<InlineResponse2002>;
 
 }

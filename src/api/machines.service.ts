@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CustomError } from '../model/customError';
 import { Deleted } from '../model/deleted';
 import { IdInteger } from '../model/idInteger';
-import { InlineResponse2002 } from '../model/inlineResponse2002';
+import { InlineResponse2003 } from '../model/inlineResponse2003';
 import { Machines } from '../model/machines';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -250,9 +250,9 @@ export class MachinesService implements MachinesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
-    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
-    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
+    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2003>;
+    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2003>>;
+    public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2003>>;
     public getMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (skip === null || skip === undefined) {
@@ -302,7 +302,7 @@ export class MachinesService implements MachinesServiceInterface {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<InlineResponse2002>(`${this.basePath}/machines`,
+        return this.httpClient.get<InlineResponse2003>(`${this.basePath}/machines`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

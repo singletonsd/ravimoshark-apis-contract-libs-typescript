@@ -21,8 +21,9 @@ import { CustomError } from '../model/customError';
 import { Deleted } from '../model/deleted';
 import { IdInteger } from '../model/idInteger';
 import { ImportedMachines } from '../model/importedMachines';
-import { InlineResponse2001 } from '../model/inlineResponse2001';
+import { InlineResponse2002 } from '../model/inlineResponse2002';
 import { Machines } from '../model/machines';
+import { Reviewed } from '../model/reviewed';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -248,13 +249,14 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
      * @param filterBy filter data.
      * @param deleted Get all, deleted, not deleted data. Default not deleted.
      * @param metadata If metadata is needed (for pagination controls)
+     * @param reviewed only reviewed data.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
-    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
-    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
-    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
+    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
+    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
+    public getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (skip === null || skip === undefined) {
             throw new Error('Required parameter skip was null or undefined when calling getImportedMachines.');
@@ -263,6 +265,7 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
         if (limit === null || limit === undefined) {
             throw new Error('Required parameter limit was null or undefined when calling getImportedMachines.');
         }
+
 
 
 
@@ -287,6 +290,9 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
         if (metadata !== undefined && metadata !== null) {
             queryParameters = queryParameters.set('metadata', <any>metadata);
         }
+        if (reviewed !== undefined && reviewed !== null) {
+            queryParameters = queryParameters.set('reviewed', <any>reviewed);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -303,7 +309,7 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<InlineResponse2001>(`${this.basePath}/importedMachines`,
+        return this.httpClient.get<InlineResponse2002>(`${this.basePath}/importedMachines`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

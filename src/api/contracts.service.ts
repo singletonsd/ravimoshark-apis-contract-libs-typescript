@@ -20,8 +20,10 @@ import { Observable }                                        from 'rxjs';
 import { Contracts } from '../model/contracts';
 import { CustomError } from '../model/customError';
 import { Deleted } from '../model/deleted';
-import { InlineResponse200 } from '../model/inlineResponse200';
+import { InlineResponse2001 } from '../model/inlineResponse2001';
 import { RefContract } from '../model/refContract';
+import { Reviewed } from '../model/reviewed';
+import { Valid } from '../model/valid';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -247,13 +249,15 @@ export class ContractsService implements ContractsServiceInterface {
      * @param filterBy filter data.
      * @param deleted Get all, deleted, not deleted data. Default not deleted.
      * @param metadata If metadata is needed (for pagination controls)
+     * @param valid Only valid data.
+     * @param reviewed only reviewed data.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse200>;
-    public getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
-    public getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
-    public getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
+    public getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
+    public getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
+    public getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (skip === null || skip === undefined) {
             throw new Error('Required parameter skip was null or undefined when calling getContracts.');
@@ -262,6 +266,8 @@ export class ContractsService implements ContractsServiceInterface {
         if (limit === null || limit === undefined) {
             throw new Error('Required parameter limit was null or undefined when calling getContracts.');
         }
+
+
 
 
 
@@ -286,6 +292,12 @@ export class ContractsService implements ContractsServiceInterface {
         if (metadata !== undefined && metadata !== null) {
             queryParameters = queryParameters.set('metadata', <any>metadata);
         }
+        if (valid !== undefined && valid !== null) {
+            queryParameters = queryParameters.set('valid', <any>valid);
+        }
+        if (reviewed !== undefined && reviewed !== null) {
+            queryParameters = queryParameters.set('reviewed', <any>reviewed);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -302,7 +314,7 @@ export class ContractsService implements ContractsServiceInterface {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<InlineResponse200>(`${this.basePath}/contracts`,
+        return this.httpClient.get<InlineResponse2001>(`${this.basePath}/contracts`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
