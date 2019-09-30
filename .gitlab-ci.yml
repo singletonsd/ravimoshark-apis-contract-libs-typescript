@@ -36,7 +36,7 @@ install:
       - node_modules/
   only:
     changes:
-      - ./*.json
+      - *.json
       - src/**/*
       - .gitlab-ci.yml
 
@@ -58,7 +58,7 @@ build:
     expire_in: 20 yrs
   only:
     changes:
-      - ./*.json
+      - *.json
       - src/**/*
       - .gitlab-ci.yml
 
@@ -71,7 +71,7 @@ lint:
     - schedules
   only:
     changes:
-      - ./*.json
+      - *.json
       - src/**/*
       - .gitlab-ci.yml
 
@@ -84,7 +84,7 @@ audit:
     - schedules
   only:
     changes:
-      - ./*.json
+      - *.json
       - src/**/*
       - .gitlab-ci.yml
 
@@ -97,7 +97,7 @@ npm-check:
     - schedules
   only:
     changes:
-      - ./*.json
+      - *.json
       - src/**/*
       - .gitlab-ci.yml
 
@@ -139,7 +139,7 @@ publish:
     variables:
       - $CI_PROJECT_PATH == $ORIGINAL_REPOSITORY
     changes:
-      - ./*.json
+      - *.json
       - src/**/*
       - .gitlab-ci.yml
 
