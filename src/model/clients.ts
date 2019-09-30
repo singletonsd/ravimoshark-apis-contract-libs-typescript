@@ -14,7 +14,7 @@
  * Client minimum information.
  */
 export interface Clients { 
-    refClient?: number;
-    nom?: string;
-    abrege?: string;
+    refClient?: string;
+    name?: string;
+    nickname?: string;
 }
