@@ -6,3 +6,4 @@ dist*
 /binaries/
 /.ng*/
 .npmrc
+openapi.json

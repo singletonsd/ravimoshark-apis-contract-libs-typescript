@@ -35,6 +35,7 @@
     "build": "ng-packagr -p ng-package.json",
     "check": "npm-check",
     "generate": "./scripts/generate.sh",
+    "generate-local": "./scripts/generate.sh ../../documentation/dist/openapi.json",
     "lint": "echo skipping lint rules...",
     "publish": "npm publish dist/ --access public",
     "publish-snapshot": "npm run publish --tag snapshot",
