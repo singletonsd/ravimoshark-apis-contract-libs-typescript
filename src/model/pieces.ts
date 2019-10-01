@@ -15,5 +15,5 @@
  */
 export interface Pieces { 
     refArticle?: string;
-    designation?: string;
+    name?: string;
 }

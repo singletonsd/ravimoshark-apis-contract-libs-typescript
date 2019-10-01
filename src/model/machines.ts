@@ -19,7 +19,7 @@ export interface Machines {
     refArticle?: string;
     piece?: Pieces;
     numSerie?: string;
-    refContract?: string;
+    idLocations?: Array<number>;
     createdAt?: string;
     updatedAt?: string;
     deleted?: boolean;
