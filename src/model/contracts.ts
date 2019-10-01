@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */import { Clients } from './clients';
+import { ImportedMachines } from './importedMachines';
 import { Locations } from './locations';
 
 
@@ -19,6 +20,8 @@ export interface Contracts {
     refContract?: number;
     locations?: Array<Locations>;
     idLocations?: Array<number>;
+    importedMachines?: Array<ImportedMachines>;
+    idImportedMachines?: Array<number>;
     refClient?: string;
     client?: Clients;
     identification?: string;
