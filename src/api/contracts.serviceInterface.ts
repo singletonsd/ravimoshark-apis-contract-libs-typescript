@@ -72,6 +72,6 @@ export interface ContractsServiceInterface {
     * @param valid Only valid data.
     * @param reviewed only reviewed data.
     */
-    getContracts(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, extraHttpRequestParams?: any): Observable<InlineResponse2001>;
+    getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, extraHttpRequestParams?: any): Observable<InlineResponse2001>;
 
 }

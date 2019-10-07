@@ -71,6 +71,6 @@ export interface ImportedMachinesServiceInterface {
     * @param metadata If metadata is needed (for pagination controls)
     * @param reviewed only reviewed data.
     */
-    getImportedMachines(skip: number, limit: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, extraHttpRequestParams?: any): Observable<InlineResponse2002>;
+    getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, extraHttpRequestParams?: any): Observable<InlineResponse2002>;
 
 }

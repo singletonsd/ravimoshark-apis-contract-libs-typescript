@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-export type Reviewed = 'REVIEWED' | 'NOT_REVIEWED' | 'ALL';
+export type Reviewed = 'REVIEWED' | 'UNREVIEWED' | 'ALL';
 
 export const Reviewed = {
     REVIEWED: 'REVIEWED' as Reviewed,
-    NOTREVIEWED: 'NOT_REVIEWED' as Reviewed,
+    UNREVIEWED: 'UNREVIEWED' as Reviewed,
     ALL: 'ALL' as Reviewed
 };
