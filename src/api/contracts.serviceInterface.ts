@@ -36,7 +36,7 @@ export interface ContractsServiceInterface {
     * Add one contract.
     * @param body 
     */
-    addContract(body?: Contracts, extraHttpRequestParams?: any): Observable<Contracts>;
+    addContract(body: Contracts, extraHttpRequestParams?: any): Observable<Contracts>;
 
     /**
     * Delete one contract.
@@ -50,7 +50,7 @@ export interface ContractsServiceInterface {
     * Edit one contract.
     * @param body 
     */
-    editContract(body?: Contracts, extraHttpRequestParams?: any): Observable<Contracts>;
+    editContract(body: Contracts, extraHttpRequestParams?: any): Observable<Contracts>;
 
     /**
     * Get one contract.
@@ -71,7 +71,8 @@ export interface ContractsServiceInterface {
     * @param metadata If metadata is needed (for pagination controls)
     * @param valid Only valid data.
     * @param reviewed only reviewed data.
+    * @param refClient Data from a desired contract
     */
-    getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, extraHttpRequestParams?: any): Observable<InlineResponse2001>;
+    getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, refClient?: string, extraHttpRequestParams?: any): Observable<InlineResponse2001>;
 
 }

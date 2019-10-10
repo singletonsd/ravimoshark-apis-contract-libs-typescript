@@ -69,11 +69,14 @@ export class ContractsService implements ContractsServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public addContract(body?: Contracts, observe?: 'body', reportProgress?: boolean): Observable<Contracts>;
-    public addContract(body?: Contracts, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Contracts>>;
-    public addContract(body?: Contracts, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Contracts>>;
-    public addContract(body?: Contracts, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public addContract(body: Contracts, observe?: 'body', reportProgress?: boolean): Observable<Contracts>;
+    public addContract(body: Contracts, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Contracts>>;
+    public addContract(body: Contracts, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Contracts>>;
+    public addContract(body: Contracts, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling addContract.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -154,11 +157,14 @@ export class ContractsService implements ContractsServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public editContract(body?: Contracts, observe?: 'body', reportProgress?: boolean): Observable<Contracts>;
-    public editContract(body?: Contracts, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Contracts>>;
-    public editContract(body?: Contracts, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Contracts>>;
-    public editContract(body?: Contracts, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public editContract(body: Contracts, observe?: 'body', reportProgress?: boolean): Observable<Contracts>;
+    public editContract(body: Contracts, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Contracts>>;
+    public editContract(body: Contracts, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Contracts>>;
+    public editContract(body: Contracts, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling editContract.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -251,13 +257,15 @@ export class ContractsService implements ContractsServiceInterface {
      * @param metadata If metadata is needed (for pagination controls)
      * @param valid Only valid data.
      * @param reviewed only reviewed data.
+     * @param refClient Data from a desired contract
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
-    public getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
-    public getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
-    public getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, refClient?: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
+    public getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, refClient?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
+    public getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, refClient?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
+    public getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, refClient?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
 
 
 
@@ -291,6 +299,9 @@ export class ContractsService implements ContractsServiceInterface {
         }
         if (reviewed !== undefined && reviewed !== null) {
             queryParameters = queryParameters.set('reviewed', <any>reviewed);
+        }
+        if (refClient !== undefined && refClient !== null) {
+            queryParameters = queryParameters.set('refClient', <any>refClient);
         }
 
         let headers = this.defaultHeaders;

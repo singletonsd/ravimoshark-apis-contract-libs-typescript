@@ -36,7 +36,7 @@ export interface ImportedMachinesServiceInterface {
     * Add one imported Machine.
     * @param body 
     */
-    addImportedMachine(body?: ImportedMachines, extraHttpRequestParams?: any): Observable<ImportedMachines>;
+    addImportedMachine(body: ImportedMachines, extraHttpRequestParams?: any): Observable<ImportedMachines>;
 
     /**
     * Delete one imported Machine.
@@ -50,7 +50,7 @@ export interface ImportedMachinesServiceInterface {
     * Edit one imported Machine.
     * @param body 
     */
-    editImportedMachine(body?: ImportedMachines, extraHttpRequestParams?: any): Observable<ImportedMachines>;
+    editImportedMachine(body: ImportedMachines, extraHttpRequestParams?: any): Observable<ImportedMachines>;
 
     /**
     * Get one imported Machine.

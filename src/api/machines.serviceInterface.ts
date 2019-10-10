@@ -34,7 +34,7 @@ export interface MachinesServiceInterface {
     * Add one machine.
     * @param body 
     */
-    addMachine(body?: Machines, extraHttpRequestParams?: any): Observable<Machines>;
+    addMachine(body: Machines, extraHttpRequestParams?: any): Observable<Machines>;
 
     /**
     * Delete one machine.
@@ -48,7 +48,7 @@ export interface MachinesServiceInterface {
     * Edit one machine.
     * @param body 
     */
-    editMachine(body?: Machines, extraHttpRequestParams?: any): Observable<Machines>;
+    editMachine(body: Machines, extraHttpRequestParams?: any): Observable<Machines>;
 
     /**
     * Get one Machine.

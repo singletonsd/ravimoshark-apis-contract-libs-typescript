@@ -67,11 +67,14 @@ export class MachinesService implements MachinesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public addMachine(body?: Machines, observe?: 'body', reportProgress?: boolean): Observable<Machines>;
-    public addMachine(body?: Machines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Machines>>;
-    public addMachine(body?: Machines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Machines>>;
-    public addMachine(body?: Machines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public addMachine(body: Machines, observe?: 'body', reportProgress?: boolean): Observable<Machines>;
+    public addMachine(body: Machines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Machines>>;
+    public addMachine(body: Machines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Machines>>;
+    public addMachine(body: Machines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling addMachine.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -152,11 +155,14 @@ export class MachinesService implements MachinesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public editMachine(body?: Machines, observe?: 'body', reportProgress?: boolean): Observable<Machines>;
-    public editMachine(body?: Machines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Machines>>;
-    public editMachine(body?: Machines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Machines>>;
-    public editMachine(body?: Machines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public editMachine(body: Machines, observe?: 'body', reportProgress?: boolean): Observable<Machines>;
+    public editMachine(body: Machines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Machines>>;
+    public editMachine(body: Machines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Machines>>;
+    public editMachine(body: Machines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling editMachine.');
+        }
 
         let headers = this.defaultHeaders;
 

@@ -69,11 +69,14 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public addImportedMachine(body?: ImportedMachines, observe?: 'body', reportProgress?: boolean): Observable<ImportedMachines>;
-    public addImportedMachine(body?: ImportedMachines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImportedMachines>>;
-    public addImportedMachine(body?: ImportedMachines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImportedMachines>>;
-    public addImportedMachine(body?: ImportedMachines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public addImportedMachine(body: ImportedMachines, observe?: 'body', reportProgress?: boolean): Observable<ImportedMachines>;
+    public addImportedMachine(body: ImportedMachines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImportedMachines>>;
+    public addImportedMachine(body: ImportedMachines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImportedMachines>>;
+    public addImportedMachine(body: ImportedMachines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling addImportedMachine.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -154,11 +157,14 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public editImportedMachine(body?: ImportedMachines, observe?: 'body', reportProgress?: boolean): Observable<ImportedMachines>;
-    public editImportedMachine(body?: ImportedMachines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImportedMachines>>;
-    public editImportedMachine(body?: ImportedMachines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImportedMachines>>;
-    public editImportedMachine(body?: ImportedMachines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public editImportedMachine(body: ImportedMachines, observe?: 'body', reportProgress?: boolean): Observable<ImportedMachines>;
+    public editImportedMachine(body: ImportedMachines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImportedMachines>>;
+    public editImportedMachine(body: ImportedMachines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImportedMachines>>;
+    public editImportedMachine(body: ImportedMachines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling editImportedMachine.');
+        }
 
         let headers = this.defaultHeaders;
 
