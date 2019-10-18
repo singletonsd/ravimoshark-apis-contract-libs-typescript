@@ -17,7 +17,7 @@ import { Observable }                                        from 'rxjs/Observab
 import { CustomError } from '../model/customError';
 import { Deleted } from '../model/deleted';
 import { IdInteger } from '../model/idInteger';
-import { InlineResponse2003 } from '../model/inlineResponse2003';
+import { InlineResponse2004 } from '../model/inlineResponse2004';
 import { Machines } from '../model/machines';
 
 
@@ -70,6 +70,6 @@ export interface MachinesServiceInterface {
     * @param refClient Data from a desired client
     * @param refContract Data from a desired contract
     */
-    getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, extraHttpRequestParams?: any): Observable<InlineResponse2003>;
+    getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, extraHttpRequestParams?: any): Observable<InlineResponse2004>;
 
 }

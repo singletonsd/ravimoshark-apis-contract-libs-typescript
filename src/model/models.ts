@@ -9,6 +9,7 @@ export * from './inlineResponse2001';
 export * from './inlineResponse2002';
 export * from './inlineResponse2003';
 export * from './inlineResponse2004';
+export * from './inlineResponse2005';
 export * from './locations';
 export * from './machines';
 export * from './metadata';

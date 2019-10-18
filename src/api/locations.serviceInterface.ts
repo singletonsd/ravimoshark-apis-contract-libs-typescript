@@ -16,27 +16,60 @@ import { Observable }                                        from 'rxjs/Observab
 
 import { CustomError } from '../model/customError';
 import { Deleted } from '../model/deleted';
-import { InlineResponse2005 } from '../model/inlineResponse2005';
+import { IdInteger } from '../model/idInteger';
+import { InlineResponse2003 } from '../model/inlineResponse2003';
+import { Locations } from '../model/locations';
 
 
 import { Configuration }                                     from '../configuration';
 
 
-export interface PiecesServiceInterface {
+export interface LocationsServiceInterface {
     defaultHeaders: HttpHeaders;
     configuration: Configuration;
     
 
     /**
-    * Get all pieces.
-    * Get all pieces.
+    * Add one location.
+    * Add one location.
+    * @param body 
+    */
+    addLocation(body: Locations, extraHttpRequestParams?: any): Observable<Locations>;
+
+    /**
+    * Delete one location.
+    * Delete one location.
+    * @param id id to delete or search
+    */
+    deleteLocation(id: number, extraHttpRequestParams?: any): Observable<IdInteger>;
+
+    /**
+    * Edit one location.
+    * Edit one location.
+    * @param body 
+    */
+    editLocation(body: Locations, extraHttpRequestParams?: any): Observable<Locations>;
+
+    /**
+    * Get one Location.
+    * Get one location.
+    * @param id id to delete or search
+    * @param deleted Get all, deleted, not deleted data. Default not deleted.
+    */
+    getLocationById(id: number, deleted?: Deleted, extraHttpRequestParams?: any): Observable<Locations>;
+
+    /**
+    * Get all locations.
+    * Get all locations.
     * @param skip number of item to skip
     * @param limit max records to return
     * @param orderBy order by property.
     * @param filterBy filter data.
     * @param deleted Get all, deleted, not deleted data. Default not deleted.
     * @param metadata If metadata is needed (for pagination controls)
+    * @param refClient Data from a desired client
+    * @param refContract Data from a desired contract
     */
-    getPieces(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, extraHttpRequestParams?: any): Observable<InlineResponse2005>;
+    getLocations(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, extraHttpRequestParams?: any): Observable<InlineResponse2003>;
 
 }

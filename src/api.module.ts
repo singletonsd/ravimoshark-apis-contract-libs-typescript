@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { ClientsService } from './api/clients.service';
 import { ContractsService } from './api/contracts.service';
 import { ImportedMachinesService } from './api/importedMachines.service';
+import { LocationsService } from './api/locations.service';
 import { MachinesService } from './api/machines.service';
 import { PiecesService } from './api/pieces.service';
 
@@ -17,6 +18,7 @@ import { PiecesService } from './api/pieces.service';
     ClientsService,
     ContractsService,
     ImportedMachinesService,
+    LocationsService,
     MachinesService,
     PiecesService ]
 })

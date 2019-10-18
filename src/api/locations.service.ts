@@ -20,16 +20,16 @@ import { Observable }                                        from 'rxjs';
 import { CustomError } from '../model/customError';
 import { Deleted } from '../model/deleted';
 import { IdInteger } from '../model/idInteger';
-import { InlineResponse2004 } from '../model/inlineResponse2004';
-import { Machines } from '../model/machines';
+import { InlineResponse2003 } from '../model/inlineResponse2003';
+import { Locations } from '../model/locations';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
-import { MachinesServiceInterface }                            from './machines.serviceInterface';
+import { LocationsServiceInterface }                            from './locations.serviceInterface';
 
 
 @Injectable()
-export class MachinesService implements MachinesServiceInterface {
+export class LocationsService implements LocationsServiceInterface {
 
     protected basePath = 'http://localhost:8000';
     public defaultHeaders = new HttpHeaders();
@@ -61,19 +61,19 @@ export class MachinesService implements MachinesServiceInterface {
 
 
     /**
-     * Add one machine.
-     * Add one machine.
+     * Add one location.
+     * Add one location.
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public addMachine(body: Machines, observe?: 'body', reportProgress?: boolean): Observable<Machines>;
-    public addMachine(body: Machines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Machines>>;
-    public addMachine(body: Machines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Machines>>;
-    public addMachine(body: Machines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public addLocation(body: Locations, observe?: 'body', reportProgress?: boolean): Observable<Locations>;
+    public addLocation(body: Locations, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Locations>>;
+    public addLocation(body: Locations, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Locations>>;
+    public addLocation(body: Locations, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling addMachine.');
+            throw new Error('Required parameter body was null or undefined when calling addLocation.');
         }
 
         let headers = this.defaultHeaders;
@@ -96,7 +96,7 @@ export class MachinesService implements MachinesServiceInterface {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<Machines>(`${this.basePath}/machines`,
+        return this.httpClient.post<Locations>(`${this.basePath}/locations`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -108,19 +108,19 @@ export class MachinesService implements MachinesServiceInterface {
     }
 
     /**
-     * Delete one machine.
-     * Delete one machine.
+     * Delete one location.
+     * Delete one location.
      * @param id id to delete or search
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteMachine(id: number, observe?: 'body', reportProgress?: boolean): Observable<IdInteger>;
-    public deleteMachine(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IdInteger>>;
-    public deleteMachine(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IdInteger>>;
-    public deleteMachine(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public deleteLocation(id: number, observe?: 'body', reportProgress?: boolean): Observable<IdInteger>;
+    public deleteLocation(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IdInteger>>;
+    public deleteLocation(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IdInteger>>;
+    public deleteLocation(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling deleteMachine.');
+            throw new Error('Required parameter id was null or undefined when calling deleteLocation.');
         }
 
         let headers = this.defaultHeaders;
@@ -138,7 +138,7 @@ export class MachinesService implements MachinesServiceInterface {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.delete<IdInteger>(`${this.basePath}/machines/${encodeURIComponent(String(id))}`,
+        return this.httpClient.delete<IdInteger>(`${this.basePath}/locations/${encodeURIComponent(String(id))} copy`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -149,19 +149,19 @@ export class MachinesService implements MachinesServiceInterface {
     }
 
     /**
-     * Edit one machine.
-     * Edit one machine.
+     * Edit one location.
+     * Edit one location.
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public editMachine(body: Machines, observe?: 'body', reportProgress?: boolean): Observable<Machines>;
-    public editMachine(body: Machines, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Machines>>;
-    public editMachine(body: Machines, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Machines>>;
-    public editMachine(body: Machines, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public editLocation(body: Locations, observe?: 'body', reportProgress?: boolean): Observable<Locations>;
+    public editLocation(body: Locations, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Locations>>;
+    public editLocation(body: Locations, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Locations>>;
+    public editLocation(body: Locations, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling editMachine.');
+            throw new Error('Required parameter body was null or undefined when calling editLocation.');
         }
 
         let headers = this.defaultHeaders;
@@ -184,7 +184,7 @@ export class MachinesService implements MachinesServiceInterface {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<Machines>(`${this.basePath}/machines`,
+        return this.httpClient.put<Locations>(`${this.basePath}/locations`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -196,20 +196,20 @@ export class MachinesService implements MachinesServiceInterface {
     }
 
     /**
-     * Get one Machine.
-     * Get one machine.
+     * Get one Location.
+     * Get one location.
      * @param id id to delete or search
      * @param deleted Get all, deleted, not deleted data. Default not deleted.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getMachineById(id: number, deleted?: Deleted, observe?: 'body', reportProgress?: boolean): Observable<Machines>;
-    public getMachineById(id: number, deleted?: Deleted, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Machines>>;
-    public getMachineById(id: number, deleted?: Deleted, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Machines>>;
-    public getMachineById(id: number, deleted?: Deleted, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getLocationById(id: number, deleted?: Deleted, observe?: 'body', reportProgress?: boolean): Observable<Locations>;
+    public getLocationById(id: number, deleted?: Deleted, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Locations>>;
+    public getLocationById(id: number, deleted?: Deleted, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Locations>>;
+    public getLocationById(id: number, deleted?: Deleted, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling getMachineById.');
+            throw new Error('Required parameter id was null or undefined when calling getLocationById.');
         }
 
 
@@ -233,7 +233,7 @@ export class MachinesService implements MachinesServiceInterface {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Machines>(`${this.basePath}/machines/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<Locations>(`${this.basePath}/locations/${encodeURIComponent(String(id))} copy`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -245,8 +245,8 @@ export class MachinesService implements MachinesServiceInterface {
     }
 
     /**
-     * Get all machines.
-     * Get all machines.
+     * Get all locations.
+     * Get all locations.
      * @param skip number of item to skip
      * @param limit max records to return
      * @param orderBy order by property.
@@ -258,10 +258,10 @@ export class MachinesService implements MachinesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2004>;
-    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2004>>;
-    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2004>>;
-    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getLocations(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2003>;
+    public getLocations(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2003>>;
+    public getLocations(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2003>>;
+    public getLocations(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
 
@@ -312,7 +312,7 @@ export class MachinesService implements MachinesServiceInterface {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<InlineResponse2004>(`${this.basePath}/machines`,
+        return this.httpClient.get<InlineResponse2003>(`${this.basePath}/locations`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

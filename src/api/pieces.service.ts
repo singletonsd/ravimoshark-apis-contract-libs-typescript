@@ -19,7 +19,7 @@ import { Observable }                                        from 'rxjs';
 
 import { CustomError } from '../model/customError';
 import { Deleted } from '../model/deleted';
-import { InlineResponse2004 } from '../model/inlineResponse2004';
+import { InlineResponse2005 } from '../model/inlineResponse2005';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -70,9 +70,9 @@ export class PiecesService implements PiecesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getPieces(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2004>;
-    public getPieces(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2004>>;
-    public getPieces(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2004>>;
+    public getPieces(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2005>;
+    public getPieces(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2005>>;
+    public getPieces(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2005>>;
     public getPieces(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
@@ -116,7 +116,7 @@ export class PiecesService implements PiecesServiceInterface {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<InlineResponse2004>(`${this.basePath}/pieces`,
+        return this.httpClient.get<InlineResponse2005>(`${this.basePath}/pieces`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
