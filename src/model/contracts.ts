@@ -11,7 +11,6 @@
  */import { Clients } from './clients';
 import { ImportedMachines } from './importedMachines';
 import { Locations } from './locations';
-import { Machines } from './machines';
 
 
 /**
@@ -23,8 +22,6 @@ export interface Contracts {
     idLocations?: Array<number>;
     importedMachines?: Array<ImportedMachines>;
     idImportedMachines?: Array<number>;
-    machines?: Array<Machines>;
-    idMachines?: Array<number>;
     refClient?: string;
     client?: Clients;
     identification?: string;
