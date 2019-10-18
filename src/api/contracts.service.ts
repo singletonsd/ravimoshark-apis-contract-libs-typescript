@@ -257,7 +257,7 @@ export class ContractsService implements ContractsServiceInterface {
      * @param metadata If metadata is needed (for pagination controls)
      * @param valid Only valid data.
      * @param reviewed only reviewed data.
-     * @param refClient Data from a desired contract
+     * @param refClient Data from a desired client
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */

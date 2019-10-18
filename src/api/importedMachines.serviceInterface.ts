@@ -70,7 +70,9 @@ export interface ImportedMachinesServiceInterface {
     * @param deleted Get all, deleted, not deleted data. Default not deleted.
     * @param metadata If metadata is needed (for pagination controls)
     * @param reviewed only reviewed data.
+    * @param refClient Data from a desired client
+    * @param refContract Data from a desired contract
     */
-    getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, extraHttpRequestParams?: any): Observable<InlineResponse2002>;
+    getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, refClient?: string, refContract?: number, extraHttpRequestParams?: any): Observable<InlineResponse2002>;
 
 }

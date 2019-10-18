@@ -256,13 +256,17 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
      * @param deleted Get all, deleted, not deleted data. Default not deleted.
      * @param metadata If metadata is needed (for pagination controls)
      * @param reviewed only reviewed data.
+     * @param refClient Data from a desired client
+     * @param refContract Data from a desired contract
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
-    public getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
-    public getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
-    public getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, refClient?: string, refContract?: number, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
+    public getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, refClient?: string, refContract?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
+    public getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, refClient?: string, refContract?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
+    public getImportedMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, reviewed?: Reviewed, refClient?: string, refContract?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
 
 
 
@@ -292,6 +296,12 @@ export class ImportedMachinesService implements ImportedMachinesServiceInterface
         }
         if (reviewed !== undefined && reviewed !== null) {
             queryParameters = queryParameters.set('reviewed', <any>reviewed);
+        }
+        if (refClient !== undefined && refClient !== null) {
+            queryParameters = queryParameters.set('refClient', <any>refClient);
+        }
+        if (refContract !== undefined && refContract !== null) {
+            queryParameters = queryParameters.set('refContract', <any>refContract);
         }
 
         let headers = this.defaultHeaders;

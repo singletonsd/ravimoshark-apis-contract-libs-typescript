@@ -71,7 +71,7 @@ export interface ContractsServiceInterface {
     * @param metadata If metadata is needed (for pagination controls)
     * @param valid Only valid data.
     * @param reviewed only reviewed data.
-    * @param refClient Data from a desired contract
+    * @param refClient Data from a desired client
     */
     getContracts(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, valid?: Valid, reviewed?: Reviewed, refClient?: string, extraHttpRequestParams?: any): Observable<InlineResponse2001>;
 

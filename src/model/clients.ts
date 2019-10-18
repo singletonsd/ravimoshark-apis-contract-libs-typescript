@@ -17,4 +17,5 @@ export interface Clients {
     refClient?: string;
     name?: string;
     nickname?: string;
+    group?: string;
 }

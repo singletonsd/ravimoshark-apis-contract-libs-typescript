@@ -253,13 +253,17 @@ export class MachinesService implements MachinesServiceInterface {
      * @param filterBy filter data.
      * @param deleted Get all, deleted, not deleted data. Default not deleted.
      * @param metadata If metadata is needed (for pagination controls)
+     * @param refClient Data from a desired client
+     * @param refContract Data from a desired contract
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2003>;
-    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2003>>;
-    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2003>>;
-    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2003>;
+    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2003>>;
+    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2003>>;
+    public getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
 
 
 
@@ -285,6 +289,12 @@ export class MachinesService implements MachinesServiceInterface {
         }
         if (metadata !== undefined && metadata !== null) {
             queryParameters = queryParameters.set('metadata', <any>metadata);
+        }
+        if (refClient !== undefined && refClient !== null) {
+            queryParameters = queryParameters.set('refClient', <any>refClient);
+        }
+        if (refContract !== undefined && refContract !== null) {
+            queryParameters = queryParameters.set('refContract', <any>refContract);
         }
 
         let headers = this.defaultHeaders;

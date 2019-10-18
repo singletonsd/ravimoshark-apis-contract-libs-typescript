@@ -67,7 +67,9 @@ export interface MachinesServiceInterface {
     * @param filterBy filter data.
     * @param deleted Get all, deleted, not deleted data. Default not deleted.
     * @param metadata If metadata is needed (for pagination controls)
+    * @param refClient Data from a desired client
+    * @param refContract Data from a desired contract
     */
-    getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, extraHttpRequestParams?: any): Observable<InlineResponse2003>;
+    getMachines(skip?: number, limit?: number, orderBy?: string, filterBy?: string, deleted?: Deleted, metadata?: boolean, refClient?: string, refContract?: number, extraHttpRequestParams?: any): Observable<InlineResponse2003>;
 
 }
